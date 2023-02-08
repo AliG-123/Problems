@@ -16,6 +16,7 @@ public class ProblemMethods {
         while (i >= 0) {
             reverseString += S.charAt(i);
             i--;
+
         }
 
         //comparing both strings in uppercase form to see if it is a valid palindrome
@@ -25,6 +26,31 @@ public class ProblemMethods {
         return false;
     }
 
+    //This code returns the first longest palindrome in a sentence
+    public static String LongestPalindrome(String S) {
+        if (S.length()<3){
+            return "No palindromes in string";
+        }
+        String[] strings = S.split(" ");
+
+        String longest = "";
+
+        for (String word: strings){
+            if (validPalindrome(word)){
+                if (word.length() > longest.length()){
+                    longest = word;
+                }
+            }
+        }
+        if (longest.length() > 3){
+            return longest;
+        }else {
+            return "No palindromes in string";
+        }
+
+
+    }
+
     // This code is for a bubble sort to take an array and put it into sorted order
     // The algorithm works by looping through the array several times and swapping adjacent elements until array is sorted
 
@@ -32,6 +58,11 @@ public class ProblemMethods {
         boolean flag = true;
         while (flag) {
             flag = false;
+            for (int number : intsArray) {
+                System.out.print(number);
+            }
+            System.out.println();
+
             for (int i = 0; i < intsArray.length - 1; i++) {
                 if (intsArray[i + 1] < intsArray[i]) {
                     flag = true;
@@ -40,13 +71,14 @@ public class ProblemMethods {
                     intsArray[i + 1] = temp;
                 }
             }
-            for (int number : intsArray) {
-                System.out.print(number);
-            }
-            System.out.println();
+
         }
         return intsArray;
 
+    }
+
+    public static void main(String[] args) {
+        System.out.println(LongestPalindrome("alig racecar"));
     }
 }
 

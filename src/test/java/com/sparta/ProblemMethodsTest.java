@@ -48,6 +48,33 @@ class ProblemMethodsTest {
 
     }
 
+    @Test
+    @DisplayName("Given a sentence containing palindromes return first longest")
+    public void GivenASentence_ReturnsFirstLongestPalindrome(){
+        String test = "Ali oo invalid racecar hannah pullup mam dad civic rotator";
+        String expectedResult = "racecar";
+        String result = ProblemMethods.LongestPalindrome(test);
+        Assertions.assertEquals(expectedResult, result);
+    }
+
+    @Test
+    @DisplayName("Given an empty string return no palindromes message")
+    public void GivenEmptyString_ReturnsNoPalindromeMesssage(){
+        String test  = "";
+        String expectedResult = "No palindromes in string";
+        String result = ProblemMethods.LongestPalindrome(test);
+        Assertions.assertEquals(expectedResult, result);
+    }
+
+    @Test
+    @DisplayName("Given a string with no palindromes return no palindromes message")
+    public void GivenStringWithNoPalindromes_ReturnsNoPalindromeMesssage(){
+        String test  = "My name is Ali and I am working for Sparta Global";
+        String expectedResult = "No palindromes in string";
+        String result = ProblemMethods.LongestPalindrome(test);
+        Assertions.assertEquals(expectedResult, result);
+    }
+
 //    @ParameterizedTest
 //    @ValueSource(ints = {59217,15731 ,13621})
 //    @DisplayName("Given different integer arrrays pass if method returns sorted array")
